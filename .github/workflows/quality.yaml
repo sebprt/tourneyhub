@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.2
+      - name: Install dependencies
+        run: composer install --no-interaction --prefer-dist
+      - name: Run static analysis
+        run: ./vendor/bin/phpcs
+      - name: Run static analysis
+        run: ./vendor/bin/psalm
+      - name: Run tests
+        run: ./vendor/bin/phpunit
+      - name: Check code style
+        run: ./vendor/bin/php-cs-fixer fix src
+      - name: Check code coverage
+        run: ./vendor/bin/phpunit
