@@ -44,11 +44,26 @@ class Tournament
     #[ORM\OneToMany(targetEntity: Leaderboard::class, mappedBy: 'tournament', orphanRemoval: true)]
     private Collection $leaderboards;
 
+    #[ORM\OneToMany(targetEntity: CashPriceContribution::class, mappedBy: 'tournament', orphanRemoval: true)]
+    private Collection $cashPriceContributions;
+
+    #[ORM\OneToOne(mappedBy: 'tournament', cascade: ['persist', 'remove'])]
+    private ?CashPrice $cashPrice = null;
+
+    #[ORM\ManyToOne(inversedBy: 'tournaments')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?VideoGame $videoGame = null;
+
+    #[ORM\ManyToOne(inversedBy: 'tournament')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Platform $platform = null;
+
     public function __construct()
     {
         $this->registrations = new ArrayCollection();
         $this->games = new ArrayCollection();
         $this->leaderboards = new ArrayCollection();
+        $this->cashPriceContributions = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -214,6 +229,77 @@ class Tournament
                 $leaderboard->setTournament(null);
             }
         }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, CashPriceContribution>
+     */
+    public function getCashPriceContributions(): Collection
+    {
+        return $this->cashPriceContributions;
+    }
+
+    public function addCashPriceContribution(CashPriceContribution $cashPriceContribution): static
+    {
+        if (!$this->cashPriceContributions->contains($cashPriceContribution)) {
+            $this->cashPriceContributions->add($cashPriceContribution);
+            $cashPriceContribution->setTournament($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCashPriceContribution(CashPriceContribution $cashPriceContribution): static
+    {
+        if ($this->cashPriceContributions->removeElement($cashPriceContribution)) {
+            // set the owning side to null (unless already changed)
+            if ($cashPriceContribution->getTournament() === $this) {
+                $cashPriceContribution->setTournament(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getCashPrice(): ?CashPrice
+    {
+        return $this->cashPrice;
+    }
+
+    public function setCashPrice(CashPrice $cashPrice): static
+    {
+        // set the owning side of the relation if necessary
+        if ($cashPrice->getTournament() !== $this) {
+            $cashPrice->setTournament($this);
+        }
+
+        $this->cashPrice = $cashPrice;
+
+        return $this;
+    }
+
+    public function getVideoGame(): ?VideoGame
+    {
+        return $this->videoGame;
+    }
+
+    public function setVideoGame(?VideoGame $videoGame): static
+    {
+        $this->videoGame = $videoGame;
+
+        return $this;
+    }
+
+    public function getPlatform(): ?Platform
+    {
+        return $this->platform;
+    }
+
+    public function setPlatform(?Platform $platform): static
+    {
+        $this->platform = $platform;
 
         return $this;
     }

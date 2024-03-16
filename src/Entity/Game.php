@@ -35,6 +35,9 @@ class Game
     #[ORM\JoinColumn(nullable: false)]
     private ?Team $teamAway = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $livestreamUrl = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -113,6 +116,18 @@ class Game
     public function setTeamAway(?Team $teamAway): static
     {
         $this->teamAway = $teamAway;
+
+        return $this;
+    }
+
+    public function getLivestreamUrl(): ?string
+    {
+        return $this->livestreamUrl;
+    }
+
+    public function setLivestreamUrl(?string $livestreamUrl): static
+    {
+        $this->livestreamUrl = $livestreamUrl;
 
         return $this;
     }

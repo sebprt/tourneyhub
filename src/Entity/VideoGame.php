@@ -20,11 +20,16 @@ class VideoGame
     private ?string $name = null;
 
     #[ORM\ManyToMany(targetEntity: User::class, inversedBy: 'games')]
+    #[ORM\JoinTable(name: 'user_video_games')]
     private Collection $users;
+
+    #[ORM\OneToMany(targetEntity: Tournament::class, mappedBy: 'videoGame')]
+    private Collection $tournaments;
 
     public function __construct()
     {
         $this->users = new ArrayCollection();
+        $this->tournaments = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -64,6 +69,36 @@ class VideoGame
     public function removeUser(User $user): static
     {
         $this->users->removeElement($user);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Tournament>
+     */
+    public function getTournaments(): Collection
+    {
+        return $this->tournaments;
+    }
+
+    public function addTournament(Tournament $tournament): static
+    {
+        if (!$this->tournaments->contains($tournament)) {
+            $this->tournaments->add($tournament);
+            $tournament->setVideoGame($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTournament(Tournament $tournament): static
+    {
+        if ($this->tournaments->removeElement($tournament)) {
+            // set the owning side to null (unless already changed)
+            if ($tournament->getVideoGame() === $this) {
+                $tournament->setVideoGame(null);
+            }
+        }
 
         return $this;
     }

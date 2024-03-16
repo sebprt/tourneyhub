@@ -32,11 +32,15 @@ class Team
     #[ORM\OneToMany(targetEntity: Leaderboard::class, mappedBy: 'team', orphanRemoval: true)]
     private Collection $leaderboards;
 
+    #[ORM\OneToMany(targetEntity: TeamAward::class, mappedBy: 'team', orphanRemoval: true)]
+    private Collection $teamAwards;
+
     public function __construct()
     {
         $this->registrations = new ArrayCollection();
         $this->members = new ArrayCollection();
         $this->leaderboards = new ArrayCollection();
+        $this->teamAwards = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -152,6 +156,36 @@ class Team
             // set the owning side to null (unless already changed)
             if ($leaderboard->getTeam() === $this) {
                 $leaderboard->setTeam(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, TeamAward>
+     */
+    public function getTeamAwards(): Collection
+    {
+        return $this->teamAwards;
+    }
+
+    public function addTeamAward(TeamAward $teamAward): static
+    {
+        if (!$this->teamAwards->contains($teamAward)) {
+            $this->teamAwards->add($teamAward);
+            $teamAward->setTeam($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTeamAward(TeamAward $teamAward): static
+    {
+        if ($this->teamAwards->removeElement($teamAward)) {
+            // set the owning side to null (unless already changed)
+            if ($teamAward->getTeam() === $this) {
+                $teamAward->setTeam(null);
             }
         }
 

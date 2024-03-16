@@ -44,23 +44,31 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $description = null;
 
-    #[ORM\OneToMany(targetEntity: UserPlatform::class, mappedBy: 'userr', orphanRemoval: true)]
+    #[ORM\OneToMany(targetEntity: UserPlatform::class, mappedBy: 'user', orphanRemoval: true)]
     private Collection $platforms;
 
-    #[ORM\OneToMany(targetEntity: Registration::class, mappedBy: 'userr', orphanRemoval: true)]
+    #[ORM\OneToMany(targetEntity: Registration::class, mappedBy: 'user', orphanRemoval: true)]
     private Collection $registrations;
 
     #[ORM\ManyToMany(targetEntity: VideoGame::class, mappedBy: 'users')]
-    private Collection $games;
+    private Collection $videoGames;
 
     #[ORM\ManyToOne(inversedBy: 'members')]
     private ?Team $team = null;
+
+    #[ORM\OneToMany(targetEntity: UserAward::class, mappedBy: 'user', orphanRemoval: true)]
+    private Collection $userAwards;
+
+    #[ORM\OneToMany(targetEntity: CashPriceContribution::class, mappedBy: 'contributor', orphanRemoval: true)]
+    private Collection $cashPriceContributions;
 
     public function __construct()
     {
         $this->platforms = new ArrayCollection();
         $this->registrations = new ArrayCollection();
-        $this->games = new ArrayCollection();
+        $this->videoGames = new ArrayCollection();
+        $this->userAwards = new ArrayCollection();
+        $this->cashPriceContributions = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -237,15 +245,15 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @return Collection<int, VideoGame>
      */
-    public function getGames(): Collection
+    public function getVideoGames(): Collection
     {
-        return $this->games;
+        return $this->videoGames;
     }
 
     public function addGame(VideoGame $game): static
     {
-        if (!$this->games->contains($game)) {
-            $this->games->add($game);
+        if (!$this->videoGames->contains($game)) {
+            $this->videoGames->add($game);
             $game->addUser($this);
         }
 
@@ -254,7 +262,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function removeGame(VideoGame $game): static
     {
-        if ($this->games->removeElement($game)) {
+        if ($this->videoGames->removeElement($game)) {
             $game->removeUser($this);
         }
 
@@ -269,6 +277,66 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setTeam(?Team $team): static
     {
         $this->team = $team;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, UserAward>
+     */
+    public function getUserAwards(): Collection
+    {
+        return $this->userAwards;
+    }
+
+    public function addUserAward(UserAward $userAward): static
+    {
+        if (!$this->userAwards->contains($userAward)) {
+            $this->userAwards->add($userAward);
+            $userAward->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUserAward(UserAward $userAward): static
+    {
+        if ($this->userAwards->removeElement($userAward)) {
+            // set the owning side to null (unless already changed)
+            if ($userAward->getUser() === $this) {
+                $userAward->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, CashPriceContribution>
+     */
+    public function getCashPriceContributions(): Collection
+    {
+        return $this->cashPriceContributions;
+    }
+
+    public function addCashPriceContribution(CashPriceContribution $cashPriceContribution): static
+    {
+        if (!$this->cashPriceContributions->contains($cashPriceContribution)) {
+            $this->cashPriceContributions->add($cashPriceContribution);
+            $cashPriceContribution->setContributor($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCashPriceContribution(CashPriceContribution $cashPriceContribution): static
+    {
+        if ($this->cashPriceContributions->removeElement($cashPriceContribution)) {
+            // set the owning side to null (unless already changed)
+            if ($cashPriceContribution->getContributor() === $this) {
+                $cashPriceContribution->setContributor(null);
+            }
+        }
 
         return $this;
     }
