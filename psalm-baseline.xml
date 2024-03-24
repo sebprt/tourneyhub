@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<files psalm-version="5.22.2@d768d914152dbbf3486c36398802f74e80cfde48">
+  <file src="src/Entity/Award.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[getDescription]]></code>
+      <code><![CDATA[getId]]></code>
+      <code><![CDATA[getName]]></code>
+      <code><![CDATA[setDescription]]></code>
+      <code><![CDATA[setName]]></code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="src/Entity/CashPrice.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[getId]]></code>
+      <code><![CDATA[getInitialAmount]]></code>
+      <code><![CDATA[getTotalAmount]]></code>
+      <code><![CDATA[setInitialAmount]]></code>
+      <code><![CDATA[setTotalAmount]]></code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="src/Entity/CashPriceContribution.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[getAmount]]></code>
+      <code><![CDATA[getContributedAt]]></code>
+      <code><![CDATA[getId]]></code>
+      <code><![CDATA[setAmount]]></code>
+      <code><![CDATA[setContributedAt]]></code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="src/Entity/Game.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[getDate]]></code>
+      <code><![CDATA[getId]]></code>
+      <code><![CDATA[getLivestreamUrl]]></code>
+      <code><![CDATA[getResult]]></code>
+      <code><![CDATA[getStatus]]></code>
+      <code><![CDATA[getTeamAway]]></code>
+      <code><![CDATA[getTeamHome]]></code>
+      <code><![CDATA[setDate]]></code>
+      <code><![CDATA[setLivestreamUrl]]></code>
+      <code><![CDATA[setResult]]></code>
+      <code><![CDATA[setStatus]]></code>
+      <code><![CDATA[setTeamAway]]></code>
+      <code><![CDATA[setTeamHome]]></code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="src/Entity/Leaderboard.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[getId]]></code>
+      <code><![CDATA[getPoints]]></code>
+      <code><![CDATA[setPoints]]></code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="src/Entity/Platform.php">
+    <MixedReturnTypeCoercion>
+      <code><![CDATA[$this->tournaments]]></code>
+      <code><![CDATA[Collection<int, Tournament>]]></code>
+    </MixedReturnTypeCoercion>
+    <PossiblyUnusedMethod>
+      <code><![CDATA[__construct]]></code>
+      <code><![CDATA[addTournament]]></code>
+      <code><![CDATA[getId]]></code>
+      <code><![CDATA[getName]]></code>
+      <code><![CDATA[getTournaments]]></code>
+      <code><![CDATA[removeTournament]]></code>
+      <code><![CDATA[setName]]></code>
+    </PossiblyUnusedMethod>
+    <RedundantConditionGivenDocblockType>
+      <code><![CDATA[!$this->tournaments->contains($tournament)]]></code>
+    </RedundantConditionGivenDocblockType>
+  </file>
+  <file src="src/Entity/Registration.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[getDate]]></code>
+      <code><![CDATA[getId]]></code>
+      <code><![CDATA[setDate]]></code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="src/Entity/Result.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[getId]]></code>
+      <code><![CDATA[getScoreTeamAway]]></code>
+      <code><![CDATA[getScoreTeamHome]]></code>
+      <code><![CDATA[getWinner]]></code>
+      <code><![CDATA[setScoreTeamAway]]></code>
+      <code><![CDATA[setScoreTeamHome]]></code>
+      <code><![CDATA[setWinner]]></code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="src/Entity/Team.php">
+    <MixedReturnTypeCoercion>
+      <code><![CDATA[$this->leaderboards]]></code>
+      <code><![CDATA[$this->members]]></code>
+      <code><![CDATA[$this->registrations]]></code>
+      <code><![CDATA[$this->teamAwards]]></code>
+      <code><![CDATA[Collection<int, Leaderboard>]]></code>
+      <code><![CDATA[Collection<int, Registration>]]></code>
+      <code><![CDATA[Collection<int, TeamAward>]]></code>
+      <code><![CDATA[Collection<int, User>]]></code>
+    </MixedReturnTypeCoercion>
+    <PossiblyUnusedMethod>
+      <code><![CDATA[__construct]]></code>
+      <code><![CDATA[addLeaderboard]]></code>
+      <code><![CDATA[addMember]]></code>
+      <code><![CDATA[addRegistration]]></code>
+      <code><![CDATA[addTeamAward]]></code>
+      <code><![CDATA[getCaptain]]></code>
+      <code><![CDATA[getId]]></code>
+      <code><![CDATA[getLeaderboards]]></code>
+      <code><![CDATA[getMembers]]></code>
+      <code><![CDATA[getName]]></code>
+      <code><![CDATA[getRegistrations]]></code>
+      <code><![CDATA[getTeamAwards]]></code>
+      <code><![CDATA[removeLeaderboard]]></code>
+      <code><![CDATA[removeMember]]></code>
+      <code><![CDATA[removeRegistration]]></code>
+      <code><![CDATA[removeTeamAward]]></code>
+      <code><![CDATA[setCaptain]]></code>
+      <code><![CDATA[setName]]></code>
+    </PossiblyUnusedMethod>
+    <RedundantConditionGivenDocblockType>
+      <code><![CDATA[!$this->leaderboards->contains($leaderboard)]]></code>
+      <code><![CDATA[!$this->members->contains($member)]]></code>
+      <code><![CDATA[!$this->registrations->contains($registration)]]></code>
+      <code><![CDATA[!$this->teamAwards->contains($teamAward)]]></code>
+    </RedundantConditionGivenDocblockType>
+  </file>
+  <file src="src/Entity/TeamAward.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[getAward]]></code>
+      <code><![CDATA[getId]]></code>
+      <code><![CDATA[getReceivedAt]]></code>
+      <code><![CDATA[setAward]]></code>
+      <code><![CDATA[setReceivedAt]]></code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="src/Entity/Tournament.php">
+    <MixedReturnTypeCoercion>
+      <code><![CDATA[$this->cashPriceContributions]]></code>
+      <code><![CDATA[$this->games]]></code>
+      <code><![CDATA[$this->leaderboards]]></code>
+      <code><![CDATA[$this->registrations]]></code>
+      <code><![CDATA[Collection<int, CashPriceContribution>]]></code>
+      <code><![CDATA[Collection<int, Game>]]></code>
+      <code><![CDATA[Collection<int, Leaderboard>]]></code>
+      <code><![CDATA[Collection<int, Registration>]]></code>
+    </MixedReturnTypeCoercion>
+    <PossiblyUnusedMethod>
+      <code><![CDATA[__construct]]></code>
+      <code><![CDATA[addCashPriceContribution]]></code>
+      <code><![CDATA[addGame]]></code>
+      <code><![CDATA[addLeaderboard]]></code>
+      <code><![CDATA[addRegistration]]></code>
+      <code><![CDATA[getCashPrice]]></code>
+      <code><![CDATA[getCashPriceContributions]]></code>
+      <code><![CDATA[getDescription]]></code>
+      <code><![CDATA[getFormat]]></code>
+      <code><![CDATA[getGames]]></code>
+      <code><![CDATA[getId]]></code>
+      <code><![CDATA[getLeaderboards]]></code>
+      <code><![CDATA[getRegistrations]]></code>
+      <code><![CDATA[getRules]]></code>
+      <code><![CDATA[getStartAt]]></code>
+      <code><![CDATA[getStatus]]></code>
+      <code><![CDATA[getTitle]]></code>
+      <code><![CDATA[removeCashPriceContribution]]></code>
+      <code><![CDATA[removeGame]]></code>
+      <code><![CDATA[removeLeaderboard]]></code>
+      <code><![CDATA[removeRegistration]]></code>
+      <code><![CDATA[setCashPrice]]></code>
+      <code><![CDATA[setDescription]]></code>
+      <code><![CDATA[setFormat]]></code>
+      <code><![CDATA[setRules]]></code>
+      <code><![CDATA[setStartAt]]></code>
+      <code><![CDATA[setStatus]]></code>
+      <code><![CDATA[setTitle]]></code>
+    </PossiblyUnusedMethod>
+    <RedundantConditionGivenDocblockType>
+      <code><![CDATA[!$this->cashPriceContributions->contains($cashPriceContribution)]]></code>
+      <code><![CDATA[!$this->games->contains($game)]]></code>
+      <code><![CDATA[!$this->leaderboards->contains($leaderboard)]]></code>
+      <code><![CDATA[!$this->registrations->contains($registration)]]></code>
+    </RedundantConditionGivenDocblockType>
+  </file>
+  <file src="src/Entity/User.php">
+    <InvalidNullableReturnType>
+      <code><![CDATA[string]]></code>
+    </InvalidNullableReturnType>
+    <LessSpecificReturnStatement>
+      <code><![CDATA[array_unique($roles)]]></code>
+    </LessSpecificReturnStatement>
+    <MixedReturnTypeCoercion>
+      <code><![CDATA[$this->cashPriceContributions]]></code>
+      <code><![CDATA[$this->platforms]]></code>
+      <code><![CDATA[$this->registrations]]></code>
+      <code><![CDATA[$this->userAwards]]></code>
+      <code><![CDATA[$this->videoGames]]></code>
+      <code><![CDATA[Collection<int, CashPriceContribution>]]></code>
+      <code><![CDATA[Collection<int, Registration>]]></code>
+      <code><![CDATA[Collection<int, UserAward>]]></code>
+      <code><![CDATA[Collection<int, UserPlatform>]]></code>
+      <code><![CDATA[Collection<int, VideoGame>]]></code>
+    </MixedReturnTypeCoercion>
+    <MoreSpecificReturnType>
+      <code><![CDATA[list<string>]]></code>
+    </MoreSpecificReturnType>
+    <NullableReturnStatement>
+      <code><![CDATA[$this->password]]></code>
+    </NullableReturnStatement>
+    <PossiblyUnusedMethod>
+      <code><![CDATA[__construct]]></code>
+      <code><![CDATA[addCashPriceContribution]]></code>
+      <code><![CDATA[addGame]]></code>
+      <code><![CDATA[addPlatform]]></code>
+      <code><![CDATA[addRegistration]]></code>
+      <code><![CDATA[addUserAward]]></code>
+      <code><![CDATA[getBirthday]]></code>
+      <code><![CDATA[getCashPriceContributions]]></code>
+      <code><![CDATA[getDescription]]></code>
+      <code><![CDATA[getEmail]]></code>
+      <code><![CDATA[getId]]></code>
+      <code><![CDATA[getPlatforms]]></code>
+      <code><![CDATA[getRegistrations]]></code>
+      <code><![CDATA[getUserAwards]]></code>
+      <code><![CDATA[getUsername]]></code>
+      <code><![CDATA[getVideoGames]]></code>
+      <code><![CDATA[removeCashPriceContribution]]></code>
+      <code><![CDATA[removeGame]]></code>
+      <code><![CDATA[removePlatform]]></code>
+      <code><![CDATA[removeRegistration]]></code>
+      <code><![CDATA[removeUserAward]]></code>
+      <code><![CDATA[setBirthday]]></code>
+      <code><![CDATA[setDescription]]></code>
+      <code><![CDATA[setEmail]]></code>
+      <code><![CDATA[setPassword]]></code>
+      <code><![CDATA[setRoles]]></code>
+      <code><![CDATA[setUsername]]></code>
+    </PossiblyUnusedMethod>
+    <RedundantConditionGivenDocblockType>
+      <code><![CDATA[!$this->cashPriceContributions->contains($cashPriceContribution)]]></code>
+      <code><![CDATA[!$this->platforms->contains($userPlatform)]]></code>
+      <code><![CDATA[!$this->registrations->contains($registration)]]></code>
+      <code><![CDATA[!$this->userAwards->contains($userAward)]]></code>
+      <code><![CDATA[!$this->videoGames->contains($game)]]></code>
+    </RedundantConditionGivenDocblockType>
+  </file>
+  <file src="src/Entity/UserAward.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[getAward]]></code>
+      <code><![CDATA[getId]]></code>
+      <code><![CDATA[getReceivedAt]]></code>
+      <code><![CDATA[setAward]]></code>
+      <code><![CDATA[setReceivedAt]]></code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="src/Entity/UserPlatform.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[getId]]></code>
+      <code><![CDATA[getPlatform]]></code>
+      <code><![CDATA[getUsername]]></code>
+      <code><![CDATA[setPlatform]]></code>
+      <code><![CDATA[setUsername]]></code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="src/Entity/VideoGame.php">
+    <MixedReturnTypeCoercion>
+      <code><![CDATA[$this->tournaments]]></code>
+      <code><![CDATA[$this->users]]></code>
+      <code><![CDATA[Collection<int, Tournament>]]></code>
+      <code><![CDATA[Collection<int, User>]]></code>
+    </MixedReturnTypeCoercion>
+    <PossiblyUnusedMethod>
+      <code><![CDATA[__construct]]></code>
+      <code><![CDATA[addTournament]]></code>
+      <code><![CDATA[getId]]></code>
+      <code><![CDATA[getName]]></code>
+      <code><![CDATA[getTournaments]]></code>
+      <code><![CDATA[getUsers]]></code>
+      <code><![CDATA[removeTournament]]></code>
+      <code><![CDATA[setName]]></code>
+    </PossiblyUnusedMethod>
+    <RedundantConditionGivenDocblockType>
+      <code><![CDATA[!$this->tournaments->contains($tournament)]]></code>
+      <code><![CDATA[!$this->users->contains($user)]]></code>
+    </RedundantConditionGivenDocblockType>
+  </file>
+  <file src="src/Repository/AwardRepository.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[__construct]]></code>
+    </PossiblyUnusedMethod>
+    <PossiblyUnusedParam>
+      <code><![CDATA[$registry]]></code>
+    </PossiblyUnusedParam>
+  </file>
+  <file src="src/Repository/CashPriceContributionRepository.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[__construct]]></code>
+    </PossiblyUnusedMethod>
+    <PossiblyUnusedParam>
+      <code><![CDATA[$registry]]></code>
+    </PossiblyUnusedParam>
+  </file>
+  <file src="src/Repository/CashPriceRepository.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[__construct]]></code>
+    </PossiblyUnusedMethod>
+    <PossiblyUnusedParam>
+      <code><![CDATA[$registry]]></code>
+    </PossiblyUnusedParam>
+  </file>
+  <file src="src/Repository/GameRepository.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[__construct]]></code>
+    </PossiblyUnusedMethod>
+    <PossiblyUnusedParam>
+      <code><![CDATA[$registry]]></code>
+    </PossiblyUnusedParam>
+  </file>
+  <file src="src/Repository/LeaderboardRepository.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[__construct]]></code>
+    </PossiblyUnusedMethod>
+    <PossiblyUnusedParam>
+      <code><![CDATA[$registry]]></code>
+    </PossiblyUnusedParam>
+  </file>
+  <file src="src/Repository/PlatformRepository.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[__construct]]></code>
+    </PossiblyUnusedMethod>
+    <PossiblyUnusedParam>
+      <code><![CDATA[$registry]]></code>
+    </PossiblyUnusedParam>
+  </file>
+  <file src="src/Repository/RegistrationRepository.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[__construct]]></code>
+    </PossiblyUnusedMethod>
+    <PossiblyUnusedParam>
+      <code><![CDATA[$registry]]></code>
+    </PossiblyUnusedParam>
+  </file>
+  <file src="src/Repository/ResultRepository.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[__construct]]></code>
+    </PossiblyUnusedMethod>
+    <PossiblyUnusedParam>
+      <code><![CDATA[$registry]]></code>
+    </PossiblyUnusedParam>
+  </file>
+  <file src="src/Repository/TeamAwardRepository.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[__construct]]></code>
+    </PossiblyUnusedMethod>
+    <PossiblyUnusedParam>
+      <code><![CDATA[$registry]]></code>
+    </PossiblyUnusedParam>
+  </file>
+  <file src="src/Repository/TeamRepository.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[__construct]]></code>
+    </PossiblyUnusedMethod>
+    <PossiblyUnusedParam>
+      <code><![CDATA[$registry]]></code>
+    </PossiblyUnusedParam>
+  </file>
+  <file src="src/Repository/TournamentRepository.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[__construct]]></code>
+    </PossiblyUnusedMethod>
+    <PossiblyUnusedParam>
+      <code><![CDATA[$registry]]></code>
+    </PossiblyUnusedParam>
+  </file>
+  <file src="src/Repository/UserAwardRepository.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[__construct]]></code>
+    </PossiblyUnusedMethod>
+    <PossiblyUnusedParam>
+      <code><![CDATA[$registry]]></code>
+    </PossiblyUnusedParam>
+  </file>
+  <file src="src/Repository/UserPlatformRepository.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[__construct]]></code>
+    </PossiblyUnusedMethod>
+    <PossiblyUnusedParam>
+      <code><![CDATA[$registry]]></code>
+    </PossiblyUnusedParam>
+  </file>
+  <file src="src/Repository/UserRepository.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[__construct]]></code>
+    </PossiblyUnusedMethod>
+    <PossiblyUnusedParam>
+      <code><![CDATA[$registry]]></code>
+    </PossiblyUnusedParam>
+  </file>
+  <file src="src/Repository/VideoGameRepository.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[__construct]]></code>
+    </PossiblyUnusedMethod>
+    <PossiblyUnusedParam>
+      <code><![CDATA[$registry]]></code>
+    </PossiblyUnusedParam>
+  </file>
+</files>
